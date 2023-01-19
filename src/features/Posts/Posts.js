@@ -8,7 +8,6 @@ export default function Posts() {
   const dispatch = useDispatch();
   const posts = useSelector(selectPosts);
   const navigate = useNavigate();
-  console.log(posts);
   useEffect(() => {
     dispatch(fetchPosts());
   }, []);
@@ -24,7 +23,7 @@ export default function Posts() {
       </Stack>
       <List sx={{ maxWidth: '800px' }}>
         {posts.map((post) => (
-          <ListItem key={post.id} onClick={() => openPost(post)}>
+          <ListItem key={post.id} onClick={() => openPost(post)} sx={{ cursor: 'pointer' }}>
             <ListItemText primary={post.title} secondary={post.body} primaryTypographyProps={{ color: '#000' }} />
           </ListItem>
         ))}
